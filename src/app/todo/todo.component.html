@@ -1,6 +1,39 @@
 <div class="view">
-    <label>{{todo.title}}</label>
-    <div class="float-right">
-        <button type="button" (click)= deleteTodo(todo) class="btn btn-danger btn-sm">Delete</button>
+    <label (onclick)="isEditing = true">
+      <tbody>
+        <td *ngIf="todo.status === 'Todo'" style="color: black;">
+          {{ todo.title }}
+        </td>
+        <td *ngIf="todo.status === 'Doing'" style="color: green;">
+          {{ todo.title }}
+        </td>
+        <div *ngIf="todo.status === 'Done'" style="color: red;">
+          <s>{{ todo.title }}</s>
+        </div>
+      </tbody>
+    </label>
+    <input
+      type="text"
+      *ngIf="isEditing"
+      [(ngModel)]="todo.title"
+      (keyup.enter)="isEditing = false"
+    />
+    <label for="list"></label>
+    <select id="list" [(ngModel)]="todo.status">
+      <option *ngFor="let status of getStatuses()">
+        {{ status }}
+      </option>
+    </select>
+    <div class="float-right form-group">
+      <button type="button" (click)="editTodo()" class="btn btn-primary btn-sm">
+        Edit
+      </button>
+      <button
+        type="button"
+        (click)="deleteTodo(todo)"
+        class="btn btn-danger btn-sm"
+      >
+        Delete
+      </button>
     </div>
-</div>
+  </div>
