@@ -7,7 +7,7 @@ import { NgbModalRef } from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ["./confirmation-modal.component.css"],
 })
 export class ConfirmationModalComponent implements OnInit {
-  modalInstance: NgbModalRef;
+  modalInstance;
   constructor() {}
 
   ngOnInit() {}
