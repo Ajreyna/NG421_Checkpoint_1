@@ -11,8 +11,11 @@ import {RouterModule } from '@angular/router';
 import { BoardComponent } from './board/board.component';
 import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { TodoTableComponent } from './todo-table/todo-table.component';
-import {MatTableModule} from '@angluar/material/table';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatInputModule} from '@angular/material/input';
 
 const routes = [{ path: "table", component: TodoTableComponent },
 { path: "board", component: BoardComponent },];
@@ -27,7 +30,10 @@ const appRoutes = RouterModule.forRoot(routes);
     ConfirmationModalComponent,
     BoardComponent,
     TodoEditComponent,
-    TodoTableComponent
+    TodoTableComponent,
+    // MatFormFieldModule,
+    // MatInputModule
+    
   ],
   imports: [
     BrowserModule,
@@ -35,10 +41,13 @@ const appRoutes = RouterModule.forRoot(routes);
     FormsModule,
     NgbModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [ConfirmationModalComponent, TodoEditComponent]
 })
 export class AppModule { }
