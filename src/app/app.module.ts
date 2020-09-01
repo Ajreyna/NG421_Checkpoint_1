@@ -44,7 +44,8 @@ const appRoutes = RouterModule.forRoot(routes);
     MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    //ConfirmationModalComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
